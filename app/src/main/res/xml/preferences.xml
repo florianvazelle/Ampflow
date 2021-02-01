@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preference_root">
+
+    <androidx.preference.SwitchPreference
+        android:defaultValue="true"
+        android:key="enabled"
+        android:summary="@string/enable_disable"
+        android:title="@string/enable_switch"/>
+
+    <androidx.preference.SwitchPreference
+        android:defaultValue="true"
+        android:key="lock_screen"
+        android:summary="@string/lock_screen_summary"
+        android:title="@string/lock_screen_title"/>
+
+    <androidx.preference.SwitchPreference
+        android:defaultValue="false"
+        android:key="low_power"
+        android:summary="@string/low_power_summary"
+        android:title="@string/low_power_title"/>
+
+</androidx.preference.PreferenceScreen>

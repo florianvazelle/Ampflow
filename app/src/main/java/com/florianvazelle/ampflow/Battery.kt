@@ -19,6 +19,7 @@ class Battery(private val context: Context) : IBattery, AbstractSensor() {
                 pct
             }
         }
+
     override val capacity: Float
         get() {
             val cap =
@@ -29,22 +30,28 @@ class Battery(private val context: Context) : IBattery, AbstractSensor() {
                 cap
             }
         }
+
     override val health: BatteryHealth
         get() = _health
+
     override val voltage: Float
         get() = _voltage
+
     override val current: Float
         get() {
             return (getInt(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) ?: 0).toFloat() * 0.001f
         }
+
     override val chargingMethod: BatteryChargingMethod
         get() = _chargingMethod
+
     override val chargingStatus: BatteryChargingStatus
         get() = _chargingStatus
+
     override val hasValidReading: Boolean
         get() = hasReading
 
-    private val batteryManager: BatteryManager? by lazy { context.getSystemService() }
+    private val batteryManager: BatteryManager? by lazy { context.getSystemService<BatteryManager>() }
 
     private var hasReading = false
     private var _percent = 0f
